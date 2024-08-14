@@ -129,6 +129,20 @@ function DatabaseConfiguration({ env }) {
 		},
 	};
 
+  // const noAwsConnection = {
+	// 	connection: {
+	// 		client: 'postgres',
+	// 		connection: {
+	// 			host: env('DATABASE_HOST', '127.0.0.1'),
+	// 			port: env.int('DATABASE_PORT', '5432'),
+	// 			database: env('DATABASE_NAME', 'postgres_strapi'),
+	// 			user: env('DATABASE_USERNAME', 'postgres'),
+	// 			password: env('DATABASE_PASSWORD', 'postgres'),
+	// 			schema,
+	// 		},
+	// 	},
+	// };
+
 	const connection = process.env.AWS_ENABLED == 'true' ? awsConnection : noAwsConnection;
 
 	// console.log(connection);
