@@ -81,6 +81,7 @@ module.exports = ({ env }) => (
 				methods: ['GET', 'POST', 'PUT', 'DELETE', 'HEAD', 'OPTIONS'],
 				origin: [
 					'http://localhost:1337',
+          env('STORE_CORS'),
 					env('MEDUSA_BACKEND_URL'),
 					env('MEDUSA_BACKEND_ADMIN'),
 					env('SELF_URL'),

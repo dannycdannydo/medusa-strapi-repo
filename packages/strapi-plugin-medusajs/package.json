@@ -63,7 +63,7 @@
   },
   "scripts": {
     "develop": "tsc -w",
-    "build": "rm -rf ./dist && tsc",
+    "build": "rmdir /s /q './dist' && tsc",
     "test": "jest --forceExit --detectOpenHandles --passWithNoTests"
   },
   "license": "MIT",

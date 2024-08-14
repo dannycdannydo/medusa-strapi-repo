@@ -10,7 +10,7 @@
   },
   "scripts": {
     "integration-test": "NODE_ENV=test strapi develop",
-    "develop": "strapi develop",
+    "dev": "strapi develop",
     "start": "strapi start",
     "build": "strapi build",
     "lint": "eslint . --ext .js --fix",
