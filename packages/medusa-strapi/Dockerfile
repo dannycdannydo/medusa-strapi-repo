@@ -1,13 +1,13 @@
 #FROM strapi/base
 
 
-#ARG AWS_DEFAULT_REGION 
-#ARG AWS_ACCESS_KEY_ID 
-#ARG AWS_SECRET_ACCESS_KEY 
-#ARG AWS_SESSION_TOKEN 
-#RUN echo $AWS_DEFAULT_REGION 
-#RUN echo $AWS_ACCESS_KEY_ID 
-#RUN echo $AWS_SECRET_ACCESS_KEY 
+#ARG AWS_DEFAULT_REGION
+#ARG AWS_ACCESS_KEY_ID
+#ARG AWS_SECRET_ACCESS_KEY
+#ARG AWS_SESSION_TOKEN
+#RUN echo $AWS_DEFAULT_REGION
+#RUN echo $AWS_ACCESS_KEY_ID
+#RUN echo $AWS_SECRET_ACCESS_KEY
 #RUN echo $AWS_SESSION_TOKEN
 
 # Let WatchTower know to ignore this container for checking
@@ -17,7 +17,7 @@ FROM naskio/strapi
 
 LABEL com.centurylinklabs.watchtower.enable="false"
 
-RUN  apt update 
+RUN  apt update
 
 RUN apt install -y curl
 
@@ -43,7 +43,6 @@ RUN ls
 ENV NODE_ENV development
 
 COPY ./public ./public
-COPY ./favicon.ico ./favicon.ico
 
 RUN yarn install --ignore-platform --network-timeout 10000000 --force --ignore-engines && yarn build
 
