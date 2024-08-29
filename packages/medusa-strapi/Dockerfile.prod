@@ -17,6 +17,7 @@ WORKDIR /opt/app
 COPY ./package.json ./
 COPY ./src ./src
 COPY ./public ./public
+COPY ./tsconfig.json ./tsconfig.json
 RUN yarn config set network-timeout 600000 -g && yarn install --production --ignore-engines
 RUN yarn build
 
