@@ -22,12 +22,13 @@ services:
       build: .
       restart: always
       environment:
-        DATABASE_CLIENT: postgres
-        DATABASE_NAME: postgres_strapi
-        DATABASE_HOST: postgres
-        DATABASE_PORT: 5432
-        DATABASE_USERNAME: postgres
-        DATABASE_PASSWORD: postgres
+        DATABASE_HOST=localhost
+        DATABASE_PORT=5432
+        DATABASE_NAME=gogroom_strapi
+        DATABASE_USERNAME=postgres
+        DATABASE_PASSWORD=Kn1fedge!
+        DATABASE_SSL=false
+        DATABASE_SCHEMA=public
       working_dir: /srv/app
       volumes:
         - ./docker-volumes/strapi-medusa/:/srv/app
@@ -38,4 +39,3 @@ services:
         - redis
 volumes:
   node_modules:
-  
