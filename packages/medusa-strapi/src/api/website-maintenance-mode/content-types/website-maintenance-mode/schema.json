@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "website_maintenance_modes",
+  "info": {
+    "singularName": "website-maintenance-mode",
+    "pluralName": "website-maintenance-modes",
+    "displayName": "Website Maintenance Mode"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "maintenanceMode": {
+      "type": "boolean"
+    }
+  }
+}

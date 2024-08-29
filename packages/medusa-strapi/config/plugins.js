@@ -83,19 +83,19 @@ module.exports = ({ env }) => ({
 	// 	config: env('NODE_ENV') == 'test' ? providerConfigLocal : providerConfigAws(env),
 	// },
   upload: {
-        config: {
-          provider: 'cloudinary',
-          providerOptions: {
-            cloud_name: env('CLOUDINARY_NAME'),
-            api_key: env('CLOUDINARY_KEY'),
-            api_secret: env('CLOUDINARY_SECRET'),
-          },
-          actionOptions: {
-            upload: {},
-            delete: {},
-          },
-        },
+    config: {
+      provider: 'cloudinary',
+      providerOptions: {
+        cloud_name: env('CLOUDINARY_NAME'),
+        api_key: env('CLOUDINARY_KEY'),
+        api_secret: env('CLOUDINARY_SECRET'),
       },
+      actionOptions: {
+        upload: {},
+        delete: {},
+      },
+    },
+  },
 	email: {
 		enabled: true,
 		config: {

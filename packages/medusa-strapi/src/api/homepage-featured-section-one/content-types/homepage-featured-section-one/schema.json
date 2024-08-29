@@ -1,0 +1,37 @@
+{
+  "kind": "singleType",
+  "collectionName": "homepage_featured_section_ones",
+  "info": {
+    "singularName": "homepage-featured-section-one",
+    "pluralName": "homepage-featured-section-ones",
+    "displayName": "Homepage Featured Section One"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "text": {
+      "type": "text"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Title": {
+      "type": "string"
+    },
+    "ButtonLink": {
+      "type": "string"
+    },
+    "ButtonText": {
+      "type": "string"
+    }
+  }
+}

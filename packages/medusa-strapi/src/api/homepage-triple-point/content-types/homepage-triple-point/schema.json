@@ -1,0 +1,39 @@
+{
+  "kind": "singleType",
+  "collectionName": "homepage_triple_points",
+  "info": {
+    "singularName": "homepage-triple-point",
+    "pluralName": "homepage-triple-points",
+    "displayName": "Homepage Triple Point"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "text": {
+      "type": "text"
+    },
+    "pointOneTItle": {
+      "type": "string"
+    },
+    "pointOneText": {
+      "type": "text"
+    },
+    "pointTwoTitle": {
+      "type": "string"
+    },
+    "pointTwoText": {
+      "type": "text"
+    },
+    "pointThreeTitle": {
+      "type": "string"
+    },
+    "pointThreeText": {
+      "type": "text"
+    }
+  }
+}

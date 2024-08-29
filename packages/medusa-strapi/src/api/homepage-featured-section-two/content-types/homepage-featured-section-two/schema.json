@@ -1,0 +1,37 @@
+{
+  "kind": "singleType",
+  "collectionName": "homepage_featured_section_twos",
+  "info": {
+    "singularName": "homepage-featured-section-two",
+    "pluralName": "homepage-featured-section-twos",
+    "displayName": "Homepage Featured Section Two"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "text": {
+      "type": "text"
+    },
+    "ButtonLink": {
+      "type": "string"
+    },
+    "ButtonText": {
+      "type": "string"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

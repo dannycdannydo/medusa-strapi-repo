@@ -62,7 +62,7 @@
     "npm": ">=6.0.0"
   },
   "scripts": {
-    "develop": "tsc -w",
+    "dev": "tsc -w",
     "build": "rmdir /s /q './dist' && tsc",
     "test": "jest --forceExit --detectOpenHandles --passWithNoTests"
   },
