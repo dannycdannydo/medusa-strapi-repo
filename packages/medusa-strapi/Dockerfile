@@ -1,52 +1,18 @@
-#FROM strapi/base
+FROM node:18-alpine
+# Installing libvips-dev for sharp Compatibility
+RUN apk update && apk add --no-cache build-base gcc autoconf automake zlib-dev libpng-dev nasm bash vips-dev
+ARG NODE_ENV=development
+ENV NODE_ENV=${NODE_ENV}
 
+WORKDIR /opt/
+COPY package.json yarn.lock ./
+RUN yarn config set network-timeout 600000 -g && yarn install
 
-#ARG AWS_DEFAULT_REGION
-#ARG AWS_ACCESS_KEY_ID
-#ARG AWS_SECRET_ACCESS_KEY
-#ARG AWS_SESSION_TOKEN
-#RUN echo $AWS_DEFAULT_REGION
-#RUN echo $AWS_ACCESS_KEY_ID
-#RUN echo $AWS_SECRET_ACCESS_KEY
-#RUN echo $AWS_SESSION_TOKEN
-
-# Let WatchTower know to ignore this container for checking
-
-
-FROM naskio/strapi
-
-LABEL com.centurylinklabs.watchtower.enable="false"
-
-RUN  apt update
-
-RUN apt install -y curl
-
-RUN curl google.com
-
-RUN npm install -g n
-
-RUN n 16
-
-WORKDIR /app
-
-COPY ./package*.json ./
-COPY ./package.json ./
-RUN mkdir ./config
-RUN mkdir ./data
-RUN mkdir ./src
-ADD ./config ./config
-ADD ./data ./data
-ADD ./src ./src
-
-RUN ls
-
-ENV NODE_ENV development
-
-COPY ./public ./public
-
-RUN yarn install --ignore-platform --network-timeout 10000000 --force --ignore-engines && yarn build
-
-
+WORKDIR /opt/app
+COPY . .
+ENV PATH /opt/node_modules/.bin:$PATH
+RUN chown -R node:node /opt/app
+USER node
+RUN ["yarn", "build"]
 EXPOSE 1337
-
-CMD ["yarn", "start"]
+CMD ["yarn", "develop"]

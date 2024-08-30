@@ -1,42 +1,72 @@
-version: "3.8"
+version: '3'
 services:
-
-  postgres:
-    image: postgres:12-alpine
-    ports:
-      - "5432:5432"
+  marshmallow-pets-strapi:
+    container_name: marshmallow-pets-strapi
+    build: .
+    image: marshmallow-pets-strapi:latest
+    restart: unless-stopped
+    env_file: .env
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 7ed280258a0d6326a895
-      POSTGRES_DB: marshmallow-backend
+      DATABASE_CLIENT: ${DATABASE_CLIENT}
+      DATABASE_HOST: marshmallow-pets-strapiDB
+      DATABASE_NAME: ${DATABASE_NAME}
+      DATABASE_USERNAME: ${DATABASE_USERNAME}
+      DATABASE_PORT: ${DATABASE_PORT}
+      JWT_SECRET: ${JWT_SECRET}
+      ADMIN_JWT_SECRET: ${ADMIN_JWT_SECRET}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+      NODE_ENV: ${NODE_ENV}
     volumes:
-      - ./docker-volumes/postgres-data:/var/lib/postgresql/data
-  redis:
-    image: redis
-    command: redis-server /usr/local/etc/redis/redis.conf
-    volumes:
-      - ./redis.conf:/usr/local/etc/redis/redis.conf
+      - ./config:/opt/app/config
+      - ./src:/opt/app/src
+      - ./package.json:/opt/package.json
+      - ./yarn.lock:/opt/yarn.lock
+
+      - ./.env:/opt/app/.env
+      - ./public/uploads:/opt/app/public/uploads
     ports:
-      -  "6379:6379"
-  strapi:
-      build: .
-      restart: always
-      environment:
-        DATABASE_CLIENT=postgres
-        DATABASE_HOST=marshmallow-backend_strapi-db
-        DATABASE_PORT=5432
-        DATABASE_NAME=marshmallow-backend
-        DATABASE_USERNAME=postgres
-        DATABASE_PASSWORD=7ed280258a0d6326a895
-        DATABASE_SSL=false
-        DATABASE_SCHEMA=public
-      working_dir: /srv/app
-      volumes:
-        - ./docker-volumes/strapi-medusa/:/srv/app
-      ports:
-        - '1337:1337'
-      depends_on:
-        - postgres
-        - redis
+      - '1337:1337'
+    networks:
+      - marshmallow-pets-strapi
+    depends_on:
+      - marshmallow-pets-strapiDB
+      
+  marshmallow-pets-strapiDB:
+    container_name: marshmallow-pets-strapiDB
+    platform: linux/amd64 #for platform error on Apple M1 chips
+    restart: unless-stopped
+    env_file: .env
+    image: postgres:14.5-alpine
+    environment:
+      POSTGRES_USER: ${DATABASE_USERNAME}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+      POSTGRES_DB: ${DATABASE_NAME}
+    volumes:
+      - marshmallow-pets-strapi-data:/var/lib/postgresql/data/ #using a volume
+      #- ./data:/var/lib/postgresql/data/ # if you want to use a bind folder
+
+    ports:
+      - '5432:5432'
+    networks:
+      - marshmallow-pets-strapi
+      
+  marshmallow-pets-strapiAdminer:
+    container_name: marshmallow-pets-strapiAdminer
+    image: adminer
+    restart: unless-stopped
+    ports:
+      - '9090:8080'
+    environment:
+      - ADMINER_DEFAULT_SERVER=marshmallow-pets-strapiDB
+    networks:
+      - marshmallow-pets-strapi
+    depends_on:
+      - marshmallow-pets-strapiDB
+
 volumes:
-  node_modules:
+  marshmallow-pets-strapi-data:
+
+networks:
+  marshmallow-pets-strapi:
+    name: Marshmallow-pets-strapi
+    driver: bridge
