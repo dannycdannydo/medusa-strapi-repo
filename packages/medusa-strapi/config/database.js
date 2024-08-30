@@ -113,7 +113,7 @@ function DatabaseConfiguration({ env }) {
 
 	const noAwsConnection = {
 		connection: {
-			client: 'postgres',
+			client: env('DATABASE_CLIENT',  "postgres"),
 			connection: {
 				host: env('DATABASE_HOST', 'marshmallow-backend_strapi-db'),
 				port: env.int('DATABASE_PORT', 5432),
