@@ -93,33 +93,33 @@ function DatabaseConfiguration({ env }) {
 	const schema =
 		process.env.NODE_ENV == 'test' ? undefined : env('DATABASE_SCHEMA', process.env.RDS_SCHEMA || 'public');
 
-	const awsConnection = {
-		connection: {
-			client: `${process.env.RDS_DATABASE_TYPE || 'postgres'}`,
-			connection: {
-				host: env('DATABASE_HOST', process.env.RDS_HOSTNAME || '127.0.0.1'),
-				port: env.int('DATABASE_PORT', parseInt(process.env.RDS_PORT, 10) || 5432),
-				database: env('DATABASE_NAME', process.env.RDS_DATABASE || 'postgres_strapi'),
-				user: env('DATABASE_USERNAME', process.env.RDS_USERNAME || 'postgres'),
-				password: getToken || env('DATABASE_PASSWORD', 'postgres'),
-				ssl: env.bool('DATABASE_SSL', {
-					rejectUnauthorized: false,
-					ca: getCertificate(),
-				}),
-				schema,
-			},
-		},
-	};
+	// const awsConnection = {
+	// 	connection: {
+	// 		client: `${process.env.RDS_DATABASE_TYPE || 'postgres'}`,
+	// 		connection: {
+	// 			host: env('DATABASE_HOST', process.env.RDS_HOSTNAME || '127.0.0.1'),
+	// 			port: env.int('DATABASE_PORT', parseInt(process.env.RDS_PORT, 10) || 5432),
+	// 			database: env('DATABASE_NAME', process.env.RDS_DATABASE || 'postgres_strapi'),
+	// 			user: env('DATABASE_USERNAME', process.env.RDS_USERNAME || 'postgres'),
+	// 			password: getToken || env('DATABASE_PASSWORD', 'postgres'),
+	// 			ssl: env.bool('DATABASE_SSL', {
+	// 				rejectUnauthorized: false,
+	// 				ca: getCertificate(),
+	// 			}),
+	// 			schema,
+	// 		},
+	// 	},
+	// };
 
 	const noAwsConnection = {
 		connection: {
 			client: 'postgres',
 			connection: {
-				host: env('DATABASE_HOST', '127.0.0.1'),
+				host: env('DATABASE_HOST', 'marshmallow-backend_strapi-db'),
 				port: env.int('DATABASE_PORT', 5432),
-				database: env('DATABASE_NAME', 'strapidb'),
-				user: env('DATABASE_USERNAME', ''),
-				password: env('DATABASE_PASSWORD', ''),
+				database: env('DATABASE_NAME', 'marshmallow-backend'),
+				user: env('DATABASE_USERNAME', 'postgres'),
+				password: env('DATABASE_PASSWORD', '7ed280258a0d6326a895'),
         ssl: env.bool("DATABASE_SSL", false) && {
             rejectUnauthorized:env.bool('DATABASE_SSL_SELF', false),
         },
