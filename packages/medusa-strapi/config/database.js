@@ -115,11 +115,11 @@ function DatabaseConfiguration({ env }) {
 		connection: {
 			client: env('DATABASE_CLIENT',  "postgres"),
 			connection: {
-				host: env('DATABASE_HOST', 'marshmallow-backend_strapi-db'),
+				host: env('DATABASE_HOST', 'postgresStrapi'),
 				port: env.int('DATABASE_PORT', 5432),
-				database: env('DATABASE_NAME', 'marshmallow-backend'),
+				database: env('DATABASE_NAME', 'postgres'),
 				user: env('DATABASE_USERNAME', 'postgres'),
-				password: env('DATABASE_PASSWORD', '7ed280258a0d6326a895'),
+				password: env('DATABASE_PASSWORD', ''),
         ssl: env.bool("DATABASE_SSL", false) && {
             rejectUnauthorized:env.bool('DATABASE_SSL_SELF', false),
         },
