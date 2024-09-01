@@ -4,7 +4,8 @@
   "info": {
     "singularName": "website-maintenance-mode",
     "pluralName": "website-maintenance-modes",
-    "displayName": "Website Maintenance Mode"
+    "displayName": "Website Maintenance Mode",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -13,6 +14,16 @@
   "attributes": {
     "maintenanceMode": {
       "type": "boolean"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
