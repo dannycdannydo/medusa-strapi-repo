@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "general_images",
+  "info": {
+    "singularName": "general-image",
+    "pluralName": "general-images",
+    "displayName": "General Images"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "images": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}
