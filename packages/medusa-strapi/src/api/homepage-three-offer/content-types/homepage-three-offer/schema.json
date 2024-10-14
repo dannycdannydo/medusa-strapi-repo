@@ -1,0 +1,63 @@
+{
+  "kind": "singleType",
+  "collectionName": "homepage_three_offers",
+  "info": {
+    "singularName": "homepage-three-offer",
+    "pluralName": "homepage-three-offers",
+    "displayName": "homepage-three-offer"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "offerOneTitle": {
+      "type": "string"
+    },
+    "offerOneText": {
+      "type": "text"
+    },
+    "offerOneImage": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "offerTwoTitle": {
+      "type": "string"
+    },
+    "offerTwoText": {
+      "type": "text"
+    },
+    "offerTwoImage": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "offerThreeTitle": {
+      "type": "string"
+    },
+    "offerThreeText": {
+      "type": "text"
+    },
+    "offerThreeImage": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
