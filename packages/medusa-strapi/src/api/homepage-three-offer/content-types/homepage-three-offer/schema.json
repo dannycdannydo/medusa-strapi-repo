@@ -4,7 +4,8 @@
   "info": {
     "singularName": "homepage-three-offer",
     "pluralName": "homepage-three-offers",
-    "displayName": "homepage-three-offer"
+    "displayName": "homepage-three-offer",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -18,14 +19,15 @@
       "type": "text"
     },
     "offerOneImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "offerTwoTitle": {
       "type": "string"
@@ -34,14 +36,15 @@
       "type": "text"
     },
     "offerTwoImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "offerThreeTitle": {
       "type": "string"
@@ -50,14 +53,24 @@
       "type": "text"
     },
     "offerThreeImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "offerOneQuery": {
+      "type": "string"
+    },
+    "offerTwoQuery": {
+      "type": "string"
+    },
+    "offerThreeQuery": {
+      "type": "string"
     }
   }
 }
