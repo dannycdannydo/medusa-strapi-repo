@@ -1,0 +1,74 @@
+{
+  "kind": "collectionType",
+  "collectionName": "groomin_guides",
+  "info": {
+    "singularName": "groomin-guide",
+    "pluralName": "groomin-guides",
+    "displayName": "Grooming Guide",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "breed": {
+      "type": "string"
+    },
+    "shortDescription": {
+      "type": "text"
+    },
+    "heroImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "questionOne": {
+      "type": "text"
+    },
+    "answerOne": {
+      "type": "richtext"
+    },
+    "questionTwo": {
+      "type": "text"
+    },
+    "answerTwo": {
+      "type": "richtext"
+    },
+    "questionThree": {
+      "type": "text"
+    },
+    "answerThree": {
+      "type": "richtext"
+    },
+    "questionFour": {
+      "type": "text"
+    },
+    "answerFour": {
+      "type": "richtext"
+    },
+    "questionFive": {
+      "type": "text"
+    },
+    "answerFive": {
+      "type": "richtext"
+    }
+  }
+}
