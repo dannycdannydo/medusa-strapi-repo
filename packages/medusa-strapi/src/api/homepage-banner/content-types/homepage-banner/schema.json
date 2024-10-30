@@ -4,7 +4,8 @@
   "info": {
     "singularName": "homepage-banner",
     "pluralName": "homepage-banners",
-    "displayName": "homepage-banner"
+    "displayName": "homepage-banner",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -21,14 +22,18 @@
       "type": "string"
     },
     "banner": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "buttonLink": {
+      "type": "text"
     }
   }
 }
