@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "all_products_images",
+  "info": {
+    "singularName": "all-products-image",
+    "pluralName": "all-products-images",
+    "displayName": "all-products-image"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
