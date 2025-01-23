@@ -4,7 +4,8 @@
   "info": {
     "singularName": "policy",
     "pluralName": "policies",
-    "displayName": "Policy"
+    "displayName": "Policy",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,6 +13,9 @@
   "pluginOptions": {},
   "attributes": {
     "returns": {
+      "type": "richtext"
+    },
+    "delivery": {
       "type": "richtext"
     }
   }
