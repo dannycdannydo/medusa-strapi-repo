@@ -38,8 +38,8 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
-          context: .
-          file: ./Dockerfile.prod
+          context: ./packages/medusa-strapi
+          file: ./packages/medusa-strapi/Dockerfile.prod
           push: true
           tags: |
             ${{ env.IMAGE_NAME }}:${{ steps.tag.outputs.tag }}
